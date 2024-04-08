@@ -1,0 +1,14 @@
+AnimationPlayer
+BoneAttachment3D
+AnimationTree
+Node3D
+Label3D
+Sprite3D
+Label
+CanvasLayer
+SubViewport
+SubViewportContainer
+MeshInstance3D
+CollisionShape3D
+StaticBody3D
+CharacterBody3D

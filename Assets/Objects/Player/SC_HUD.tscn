@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnqgxo3b1pv42"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Player/Script_HUD.gd" id="1_fnajq"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fnajq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 585.0
+offset_top = 736.0
+offset_right = 985.0
+offset_bottom = 880.0
+theme_override_font_sizes/font_size = 30

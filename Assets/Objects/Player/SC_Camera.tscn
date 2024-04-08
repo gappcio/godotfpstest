@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://1hxrf7rm1jbt"]
+
+[node name="Camera" type="Camera3D"]
+fov = 90.0

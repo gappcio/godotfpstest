@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://djlg8cugd3vfc"]
+
+[ext_resource type="PackedScene" uid="uid://dhnl2jo2nigfa" path="res://Assets/Meshes/SuperShotgun/shotgun.gltf" id="1_lumm2"]
+
+[node name="Weapon" type="Node3D"]
+
+[node name="shotgun" parent="." instance=ExtResource("1_lumm2")]
+
+[node name="Armature" parent="shotgun" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="shotgun/Armature" index="0"]
+bones/3/rotation = Quaternion(0.999958, 1.08658e-09, -1.19204e-07, -0.0091149)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.700632, 8.50586e-08, -8.35219e-08, 0.713522)
+bones/4/scale = Vector3(1.066, 0.670926, 1.066)
+bones/5/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+
+[node name="barrel" parent="shotgun/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1.066, 0, 0, 0, 0.670927, 0, 0, 0, 1.066, 0.000422646, 0.00858817, -0.045437)
+
+[node name="trigger" parent="shotgun/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1.066, 5.68434e-13, 1.58096e-13, -1.4877e-13, 3.89293e-07, 1.066, 9.09495e-13, -0.670926, 6.20261e-07, 2.17713e-11, -9.31323e-10, -1.04774e-09)
+
+[node name="trigger" parent="shotgun/Armature/Skeleton3D/trigger" index="0"]
+transform = Transform3D(1, 8.47033e-21, 1.53074e-21, 6.77626e-21, 1, -5.68434e-14, -5.14695e-22, 1.42109e-14, 1, 0, 0, 0)
+
+[node name="base" parent="shotgun/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1.066, 0, 0, 0, 0, 1.066, 0, -0.670927, 0, 0.000422646, 0.00858817, -0.045437)
+
+[editable path="shotgun"]

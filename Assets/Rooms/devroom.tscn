@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj0dt1djgvdrh"]
+
+[ext_resource type="Material" uid="uid://dtokdmqbd25j" path="res://Assets/Materials/MAT_SkyBlue.tres" id="1_nk783"]
+[ext_resource type="Material" uid="uid://dk62l4m6pwkmo" path="res://Assets/Materials/MAT_Grass1.tres" id="2_h6ps8"]
+[ext_resource type="PackedScene" uid="uid://t38lstymkpju" path="res://Assets/Objects/World/SC_PineTree.tscn" id="3_pjrfn"]
+[ext_resource type="PackedScene" uid="uid://dnqgxo3b1pv42" path="res://Assets/Objects/Player/SC_HUD.tscn" id="3_qmaf1"]
+[ext_resource type="PackedScene" uid="uid://cm6dtkgtsqn5u" path="res://Assets/Objects/Player/SC_Player.tscn" id="5_fw4xa"]
+[ext_resource type="PackedScene" uid="uid://dn45op25vexlg" path="res://Assets/Objects/World/SC_TestBlock2.tscn" id="6_xyotr"]
+
+[sub_resource type="Sky" id="Sky_uulcb"]
+sky_material = ExtResource("1_nk783")
+
+[sub_resource type="Environment" id="Environment_wd7qy"]
+background_mode = 2
+sky = SubResource("Sky_uulcb")
+ambient_light_sky_contribution = 0.5
+reflected_light_source = 1
+tonemap_mode = 2
+ssao_intensity = 6.57
+ssao_power = 6.21158
+ssil_enabled = true
+ssil_intensity = 2.0
+sdfgi_min_cell_size = 0.8
+sdfgi_cascade0_distance = 51.2
+sdfgi_max_distance = 819.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r4q78"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c0o88"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[node name="Devroom" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.62932, 0.673028, -0.388573, 0, 0.5, 0.866025, 0.777146, -0.545007, 0.31466, -0.00271821, 2.76203, 0.00280523)
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 200.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wd7qy")
+
+[node name="PineTree" parent="." instance=ExtResource("3_pjrfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13832, 0, -1.41212)
+
+[node name="HUD" parent="." instance=ExtResource("3_qmaf1")]
+
+[node name="Player" parent="." instance=ExtResource("5_fw4xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00998, 5.04007, 2.44693)
+
+[node name="GrassPlane" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GrassPlane"]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+material_override = ExtResource("2_h6ps8")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_r4q78")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassPlane"]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_c0o88")
+
+[node name="LabelX" type="Label3D" parent="."]
+transform = Transform3D(1.00178, 0, 0, 0, 1.00178, 0, 0, 0, 1.00178, 0, 1.63965, 0)
+fixed_size = true
+text = "<x>"
+
+[node name="LabelZ" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00104725, 1.37854, -0.00148189)
+fixed_size = true
+text = "<z>"
+
+[node name="TestBlock2" parent="." instance=ExtResource("6_xyotr")]
+transform = Transform3D(60.7006, 0, 0, 0, 2.77198, 0, 0, 0, 1, 0.19869, 0.826271, 0.716984)
+
+[node name="TestBlock3" parent="." instance=ExtResource("6_xyotr")]
+transform = Transform3D(60.7006, 0, 0, 0, 2.77198, 0, 0, 0, 1, 0.19869, 0.826271, 6.2987)

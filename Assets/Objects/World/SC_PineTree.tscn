@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://t38lstymkpju"]
+
+[ext_resource type="PackedScene" uid="uid://cohvfb1gmi7o" path="res://Assets/Meshes/PineTree/pine.blend" id="1_eugbv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ctewv"]
+points = PackedVector3Array(-0.75, 0, -0.75, -0.75, 0, 0.75, 0.75, 0, -0.75, 0.75, 0, 0.75, -1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1, -0.35, 9, -0.35, -0.35, 9, 0.35, 0.35, 9, -0.35, 0.35, 9, 0.35, 0, 13, 0)
+
+[node name="PineTree" type="Node3D"]
+
+[node name="pine" parent="." instance=ExtResource("1_eugbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ctewv")
+
+[editable path="pine"]

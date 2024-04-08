@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cagr31cdbuxoj"]
+
+[ext_resource type="PackedScene" uid="uid://du5k85eqso1se" path="res://Assets/Meshes/SuperShotgun/shotgun.gltf" id="1_iny8w"]
+
+[node name="SShotgunPickup" type="Node3D"]
+
+[node name="shotgun" parent="." instance=ExtResource("1_iny8w")]

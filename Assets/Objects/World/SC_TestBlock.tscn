@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhii3tmmhh2d"]
+
+[ext_resource type="Texture2D" uid="uid://c4ysldklw123o" path="res://Assets/Images/Textures/Grass/grass1.png" id="1_i3i7q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekcj7"]
+albedo_texture = ExtResource("1_i3i7q")
+uv1_scale = Vector3(0.75, 0.5, 0.75)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7j10b"]
+material = SubResource("StandardMaterial3D_ekcj7")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i65j1"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="TestBlock" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7j10b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_i65j1")
