@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxl4xftg1cyo1"]
+
+[ext_resource type="PackedScene" uid="uid://lfijw7xk8ejx" path="res://Assets/Meshes/PineTreeSmall/smallpinetree.gltf" id="1_1ei1o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unjwr"]
+radius = 0.909486
+height = 5.32693
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mhsoc"]
+radius = 0.305494
+height = 2.70256
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mtwsp"]
+radius = 0.155744
+height = 2.47443
+
+[node name="PineTreeSmall" type="Node3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00400543, 0.794257, 0.0321677)
+shape = SubResource("CapsuleShape3D_unjwr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+transform = Transform3D(0.998046, 0.062477, 0, -0.062477, 0.998046, 0, 0, 0, 1, 0.0510097, 2.86505, 0.0680132)
+shape = SubResource("CapsuleShape3D_mhsoc")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+transform = Transform3D(0.998607, -0.0527717, 0, 0.0527717, 0.998607, 0, 0, 0, 1, 0.0601659, 5.31641, 0.0218663)
+shape = SubResource("CapsuleShape3D_mtwsp")
+
+[node name="smallpinetree" parent="Pivot" instance=ExtResource("1_1ei1o")]

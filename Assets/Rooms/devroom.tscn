@@ -1,28 +1,40 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj0dt1djgvdrh"]
+[gd_scene load_steps=12 format=3 uid="uid://dj0dt1djgvdrh"]
 
-[ext_resource type="Material" uid="uid://dtokdmqbd25j" path="res://Assets/Materials/MAT_SkyBlue.tres" id="1_nk783"]
-[ext_resource type="Material" uid="uid://dk62l4m6pwkmo" path="res://Assets/Materials/MAT_Grass1.tres" id="2_h6ps8"]
-[ext_resource type="PackedScene" uid="uid://t38lstymkpju" path="res://Assets/Objects/World/SC_PineTree.tscn" id="3_pjrfn"]
+[ext_resource type="Material" uid="uid://b4dca13i4mt11" path="res://Assets/Materials/MAT_SkyCloudy.tres" id="1_hawje"]
 [ext_resource type="PackedScene" uid="uid://dnqgxo3b1pv42" path="res://Assets/Objects/Player/SC_HUD.tscn" id="3_qmaf1"]
+[ext_resource type="Material" uid="uid://chol62ukau6wt" path="res://Assets/Materials/MAT_Grass2.tres" id="4_3cc2q"]
 [ext_resource type="PackedScene" uid="uid://cm6dtkgtsqn5u" path="res://Assets/Objects/Player/SC_Player.tscn" id="5_fw4xa"]
+[ext_resource type="PackedScene" uid="uid://cicmra64qegok" path="res://Assets/Objects/World/SC_PineTree2.tscn" id="6_r6dwx"]
 [ext_resource type="PackedScene" uid="uid://dn45op25vexlg" path="res://Assets/Objects/World/SC_TestBlock2.tscn" id="6_xyotr"]
+[ext_resource type="PackedScene" uid="uid://dxl4xftg1cyo1" path="res://Assets/Objects/World/SC_PineTreeSmall.tscn" id="7_vk4p4"]
 
 [sub_resource type="Sky" id="Sky_uulcb"]
-sky_material = ExtResource("1_nk783")
+sky_material = ExtResource("1_hawje")
 
 [sub_resource type="Environment" id="Environment_wd7qy"]
 background_mode = 2
 sky = SubResource("Sky_uulcb")
-ambient_light_sky_contribution = 0.5
-reflected_light_source = 1
-tonemap_mode = 2
-ssao_intensity = 6.57
-ssao_power = 6.21158
+ambient_light_source = 3
+ambient_light_color = Color(0.458824, 0.458824, 0.458824, 1)
+ambient_light_sky_contribution = 0.75
+reflected_light_source = 2
+ssao_enabled = true
 ssil_enabled = true
 ssil_intensity = 2.0
 sdfgi_min_cell_size = 0.8
 sdfgi_cascade0_distance = 51.2
 sdfgi_max_distance = 819.2
+fog_enabled = true
+fog_light_color = Color(0.3731, 0.389705, 0.41, 1)
+fog_density = 0.02
+fog_sky_affect = 0.384
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.647059, 0.647059, 0.647059, 1)
+volumetric_fog_emission = Color(0.282353, 0.282353, 0.282353, 1)
+volumetric_fog_anisotropy = 0.05
+volumetric_fog_detail_spread = 2.04906
+volumetric_fog_ambient_inject = 1.19
+volumetric_fog_sky_affect = 0.678
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r4q78"]
 
@@ -33,15 +45,15 @@ points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.62932, 0.673028, -0.388573, 0, 0.5, 0.866025, 0.777146, -0.545007, 0.31466, -0.00271821, 2.76203, 0.00280523)
+light_color = Color(0.329412, 0.329412, 0.329412, 1)
 shadow_enabled = true
+shadow_bias = 0.085
+shadow_blur = 2.0
 directional_shadow_mode = 1
 directional_shadow_max_distance = 200.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wd7qy")
-
-[node name="PineTree" parent="." instance=ExtResource("3_pjrfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13832, 0, -1.41212)
 
 [node name="HUD" parent="." instance=ExtResource("3_qmaf1")]
 
@@ -52,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00998, 5.04007, 2.44693)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GrassPlane"]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
-material_override = ExtResource("2_h6ps8")
+material_override = ExtResource("4_3cc2q")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_r4q78")
 skeleton = NodePath("../..")
@@ -76,3 +88,12 @@ transform = Transform3D(60.7006, 0, 0, 0, 2.77198, 0, 0, 0, 1, 0.19869, 0.826271
 
 [node name="TestBlock3" parent="." instance=ExtResource("6_xyotr")]
 transform = Transform3D(60.7006, 0, 0, 0, 2.77198, 0, 0, 0, 1, 0.19869, 0.826271, 6.2987)
+
+[node name="ScPineTree3" parent="." instance=ExtResource("6_r6dwx")]
+transform = Transform3D(0.590577, 0, -0.806981, 0, 1, 0, 0.806981, 0, 0.590577, -20.408, 0, -19.3741)
+
+[node name="ScPineTree2" parent="." instance=ExtResource("6_r6dwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5873, 0, -12.3722)
+
+[node name="PineTreeSmall" parent="." instance=ExtResource("7_vk4p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9762, 5.96046e-07, -21.612)

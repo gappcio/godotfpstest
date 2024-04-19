@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b6og8p2xiv5vv"]
+
+[ext_resource type="Texture2D" uid="uid://beeboerecqt5q" path="res://Assets/Images/Textures/Dirt/dirt1.png" id="1_4uikj"]
+[ext_resource type="Texture2D" uid="uid://rti4tgwd1rho" path="res://Assets/Images/Textures/Dirt/dirt1_normal.png" id="2_m0v5s"]
+[ext_resource type="Texture2D" uid="uid://c8bnhsin7vweo" path="res://Assets/Images/Textures/Dirt/dirt1_roughness.png" id="3_qmlg8"]
+
+[resource]
+albedo_texture = ExtResource("1_4uikj")
+metallic = 0.15
+metallic_specular = 0.33
+roughness = 0.93
+roughness_texture = ExtResource("3_qmlg8")
+normal_enabled = true
+normal_texture = ExtResource("2_m0v5s")
+uv1_scale = Vector3(20, 20, 20)
+texture_filter = 4

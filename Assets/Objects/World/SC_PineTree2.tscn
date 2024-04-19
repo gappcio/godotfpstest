@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cicmra64qegok"]
+
+[ext_resource type="PackedScene" uid="uid://c2tcawkr201k2" path="res://Assets/Meshes/PineTree2/pinetree.gltf" id="1_1hrej"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xhea0"]
+points = PackedVector3Array(-0.75, 0, -0.75, -0.75, 0, 0.75, 0.75, 0, -0.75, 0.75, 0, 0.75, -1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1, -0.2, 9, -0.2, -0.4, 9, 0.2, 0.35, 9, -0.35, 0.35, 9, 0.35, -0.2, 13.5, 0)
+
+[node name="PineTree2" type="Node3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xhea0")
+
+[node name="pinetree" parent="Pivot" instance=ExtResource("1_1hrej")]
