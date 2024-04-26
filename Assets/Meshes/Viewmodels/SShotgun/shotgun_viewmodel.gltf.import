@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pgse61uapd1n"
-path="res://.godot/imported/arms_viewmodel.gltf-13b0793d99ae912a313c5c87c1c9f4ee.scn"
+uid="uid://d0y11srlwoa7u"
+path="res://.godot/imported/shotgun_viewmodel.gltf-08940b679d5543125d17f77f189b2eca.scn"
 
 [deps]
 
-source_file="res://Assets/Meshes/Viewmodels/SShotgun/arms_viewmodel.gltf"
-dest_files=["res://.godot/imported/arms_viewmodel.gltf-13b0793d99ae912a313c5c87c1c9f4ee.scn"]
+source_file="res://Assets/Meshes/Viewmodels/SShotgun/shotgun_viewmodel.gltf"
+dest_files=["res://.godot/imported/shotgun_viewmodel.gltf-08940b679d5543125d17f77f189b2eca.scn"]
 
 [params]
 

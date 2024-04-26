@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpvuc0ibnp7q"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Player/Weapon/Script_Control_Viewmodel.gd" id="1_2vjtt"]
+
+[node name="VIEWMODEL_Control" type="Node3D"]
+script = ExtResource("1_2vjtt")
+
+[node name="Weapon" type="Node3D" parent="."]
