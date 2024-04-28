@@ -16,6 +16,8 @@ func _ready():
 	
 	weapon_node = $"../../WeaponControl";
 	
+	MuzzleFX = $pistol/MuzzleFX;
+	
 	AnimWeapon.active = true;
 	AnimArm.active = true;
 	AnimMove.active = true;
@@ -24,10 +26,10 @@ func _ready():
 	AnimTreeActionWeapon.active = true;
 	
 	timer_shoot_logic_end = 0;
-	timer_shoot_logic_period = 0.1;
+	timer_shoot_logic_period = 0.25;
 
 	timer_shoot_anim_end = 0;
-	timer_shoot_anim_period = 0.4;
+	timer_shoot_anim_period = 0.5;
 
 func _process(delta):
 	super(delta);

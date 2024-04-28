@@ -5,6 +5,7 @@ class_name Player;
 @onready var camera := $Head/Camera;
 @onready var debug_arrow_velocity := $ArrowVelocityPivot;
 @onready var weapon_attach := $Head/Camera/WeaponAttach;
+@onready var weapon_viewmodel_node := $Head/Camera/WeaponAttach/ViewmodelControl/Weapon;
 
 const BASE_SPEED: float = 6.0;
 const JUMP_VELOCITY: float = 4.5;
@@ -33,12 +34,16 @@ var jump_trigger: bool = false;
 var jump_buffer_max = 7.0;
 var jump_buffer = 0.0;
 
+var camera_tilt: float;
+
 var mesh_instance;
 var im_mesh;
 var material;
 
+var input_dir = 0;
+
 func _ready():
-	pass;
+	Engine.time_scale = 1.0;
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -50,7 +55,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * .0025);
 			camera.rotate_x(-event.relative.y * .0025);
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90));
 			
 
 func _process(delta):
@@ -61,12 +65,15 @@ func _process(delta):
 	debug_arrow_velocity.scale = Vector3(l, 1, l);
 	debug_arrow_velocity.rotation = Vector3(0, r, 0);
 	
-	#Draw.line(Vector3(position.x, 0, position.z), Vector3(position.x + velocity.x, 0, position.z + velocity.z), Color.BLACK, 1);
+	_camera_tilt(input_dir);
 	
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90));
+	camera.rotation.y = 0.0;
+	#Draw.line(Vector3(position.x, 0, position.z), Vector3(position.x + velocity.x, 0, position.z + velocity.z), Color.BLACK, 1);
 
 func _physics_process(delta: float) -> void:
 	
-	var input_dir = Input.get_vector("left", "right", "forward", "back");
+	input_dir = Input.get_vector("left", "right", "forward", "back");
 	var key_crouch = Input.is_action_pressed("crouch");
 	
 	is_crouched = true if key_crouch else false;
@@ -75,11 +82,13 @@ func _physics_process(delta: float) -> void:
 		$Collision.disabled = true;
 		$CollisionCrouch.disabled = false;
 		head.position.y = lerp(head.position.y, -0.1, 0.3);
+		weapon_viewmodel_node.position.y = lerp(weapon_viewmodel_node.position.y, 0.05, 0.1);
 	else:
 		if !test_move(global_transform, Vector3(0, .2, 0)):
 			$Collision.disabled = false;
 			$CollisionCrouch.disabled = true;
 			head.position.y = lerp(head.position.y, 0.6, 0.3);
+			weapon_viewmodel_node.position.y = lerp(weapon_viewmodel_node.position.y, 0.0, 0.1);
 		
 	if velocity.y > 0:
 		is_falling = true;
@@ -131,8 +140,16 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide();
 	
+	
 
-
+func _camera_tilt(input_dir):
+	
+	var value: float = input_dir[0] / MAX_SPEED;
+	camera_tilt = lerp(camera_tilt, value, 0.1);
+	if abs(camera_tilt) < 0.001:
+		camera_tilt = 0;
+	head.rotation.z = camera_tilt;
+	
 
 func accelerate(velocity: Vector3, move_direction: Vector3, delta: float) -> Vector3:
 	

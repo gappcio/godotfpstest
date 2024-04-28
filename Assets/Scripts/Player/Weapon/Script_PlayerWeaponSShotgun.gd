@@ -16,6 +16,8 @@ func _ready():
 	
 	weapon_node = $"../../WeaponControl";
 	
+	MuzzleFX = $shotgun/MuzzleFX;
+	
 	AnimWeapon.active = true;
 	AnimArm.active = true;
 	AnimMove.active = true;

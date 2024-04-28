@@ -48,6 +48,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163806, 0.532704, 0.091506
 [node name="WeaponControl" type="Node" parent="Head/Camera/WeaponAttach/ViewmodelControl"]
 script = ExtResource("4_7lj4b")
 
+[node name="MuzzlePoint" type="Node3D" parent="Head/Camera/WeaponAttach"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163806, 0.0672958, -0.770245)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("CapsuleMesh_qsvxe")
