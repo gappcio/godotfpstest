@@ -10,8 +10,8 @@ class_name Player;
 const BASE_SPEED: float = 6.0;
 const JUMP_VELOCITY: float = 4.5;
 
-const MAX_SPEED: float = 15.0;
-const MAX_ACCEL: float = 5 * MAX_SPEED;
+const MAX_SPEED: float = 20.0;
+const MAX_ACCEL: float = 4 * MAX_SPEED;
 
 const ACCEL_GROUND: float = 0.5;
 const ACCEL_AIR: float = 0.2;

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1714326928
+::res://::1714758104
 icon.svg::CompressedTexture2D::998042428452462291::1709045974::1709045984::1::::<><>::
 ::res://addons/::1714235363
 ::res://addons/godot-jolt/::1714119202
@@ -18,7 +18,7 @@ THIRDPARTY.txt::TextFile::-1::1713356906::0::1::::<><>::
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/::1714119174
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/Resources/::1714119175
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/_CodeSignature/::1714119176
-::res://addons/godot-jolt/windows/::1714326921
+::res://addons/godot-jolt/windows/::1714758097
 ::res://addons/super_spector/::1714235363
 inspector_plugin.gd::GDScript::-1::1714235363::0::1::::<>EditorInspectorPlugin<>::
 plugin.cfg::TextFile::-1::1714235363::0::1::::<><>::
@@ -28,7 +28,7 @@ LICENSE.txt::TextFile::-1::1708250370::0::1::::<><>::
 plugin.cfg::TextFile::-1::1708250374::0::1::::<><>::
 README.md::TextFile::-1::1708250370::0::1::::<><>::
 terrain.gdextension::GDExtension::-1::1708250374::0::1::::<><>::
-::res://addons/terrain_3d/bin/::1714326921
+::res://addons/terrain_3d/bin/::1714758097
 ::res://addons/terrain_3d/bin/libterrain.macos.debug.framework/::1714119200
 ::res://addons/terrain_3d/bin/libterrain.macos.release.framework/::1714119178
 ::res://addons/terrain_3d/editor/::1714119197
@@ -81,7 +81,7 @@ importer.tscn::PackedScene::3158990868267418980::1708250374::0::1::::<><>::res:/
 ::res://Assets/Audio/::1714330808
 ::res://Assets/Audio/SFX/::1714330813
 ::res://Assets/Audio/SFX/Weapons/::1714330817
-::res://Assets/Audio/SFX/Weapons/Pistol/::1714330840
+::res://Assets/Audio/SFX/Weapons/Pistol/::1714330911
 sound_pistol_shoot.wav::AudioStreamWAV::4141200597841964287::1698855700::1714330911::1::::<><>::
 ::res://Assets/Images/::1711620780
 ::res://Assets/Images/Debug/::1711620781
@@ -150,10 +150,10 @@ skin.png::CompressedTexture2D::6304419241718300825::1713871150::1713871154::1:::
 sleeve.png::CompressedTexture2D::8166040057921379860::1713871150::1713871154::1::::<><>::
 wood.png::CompressedTexture2D::252447696220008703::1713871150::1713871154::1::::<><>::
 ::res://Assets/Objects/::1711620780
-::res://Assets/Objects/Player/::1714330740
+::res://Assets/Objects/Player/::1714332639
 SC_Camera.tscn::PackedScene::1840787741037234953::1714330740::0::1::::<><>::
 SC_HUD.tscn::PackedScene::8105153216317312641::1714327808::0::1::::<><>::res://Assets/Scripts/Player/Script_HUD.gd
-SC_Player.tscn::PackedScene::5679319817871236164::1714330740::0::1::::<><>::res://Assets/Scripts/Player/Script_Player.gd<>uid://1hxrf7rm1jbt::::res://Assets/Objects/Player/SC_Camera.tscn<>uid://blpvuc0ibnp7q::::res://Assets/Objects/Player/Viewmodels/SC_Control_ViewModel.tscn<>uid://bq04hxdqqem1b::::res://Assets/Images/Debug/arrow.png<>res://Assets/Scripts/Player/Weapon/Script_Control_PlayerWeapon.gd<>uid://dn3xfbukde1fv::::res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_None.tscn
+SC_Player.tscn::PackedScene::5679319817871236164::1714332639::0::1::::<><>::res://Assets/Scripts/Player/Script_Player.gd<>uid://1hxrf7rm1jbt::::res://Assets/Objects/Player/SC_Camera.tscn<>uid://blpvuc0ibnp7q::::res://Assets/Objects/Player/Viewmodels/SC_Control_ViewModel.tscn<>uid://bq04hxdqqem1b::::res://Assets/Images/Debug/arrow.png<>res://Assets/Scripts/Player/Weapon/Script_Control_PlayerWeapon.gd<>uid://dn3xfbukde1fv::::res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_None.tscn
 SC_Weapon.tscn::PackedScene::7814093168492247632::1712352954::0::1::::<><>::uid://dhnl2jo2nigfa::::res://Assets/Meshes/SuperShotgun/shotgun.gltf
 ::res://Assets/Objects/Player/Viewmodels/::1714330740
 SC_Control_ViewModel.tscn::PackedScene::3190774546780707396::1714330740::0::1::::<><>::res://Assets/Scripts/Player/Weapon/Script_Control_Viewmodel.gd
