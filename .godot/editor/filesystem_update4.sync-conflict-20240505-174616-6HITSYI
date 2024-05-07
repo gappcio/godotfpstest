@@ -1,0 +1,13 @@
+res://Assets/Rooms/devroom.tscn
+res://Assets/Materials/MAT_SkyCloudy.tres
+res://Assets/Materials/MAT_Grass2.tres
+res://Assets/Objects/Player/SC_Player.tscn
+res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_Pistol.tscn
+res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_SShotgun.tscn
+res://Assets/Objects/Player/Viewmodels/SC_Control_ViewModel.tscn
+res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_None.tscn
+res://Assets/Objects/Player/SC_Camera.tscn
+res://Assets/Objects/Player/SC_HUD.tscn
+res://Assets/Scripts/Player/Script_HUD.gd
+res://Assets/Scripts/Player/Script_Player.gd
+res://Assets/Scripts/Player/Weapon/Script_Control_Viewmodel.gd

@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm6dtkgtsqn5u"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Player/Script_Player.gd" id="1_5ffuh"]
+[ext_resource type="PackedScene" uid="uid://1hxrf7rm1jbt" path="res://Assets/Objects/Player/SC_Camera.tscn" id="1_xqu0b"]
+[ext_resource type="PackedScene" uid="uid://blpvuc0ibnp7q" path="res://Assets/Objects/Player/Viewmodels/SC_Control_ViewModel.tscn" id="3_5jqs6"]
+[ext_resource type="Texture2D" uid="uid://bq04hxdqqem1b" path="res://Assets/Images/Debug/arrow.png" id="3_qcniq"]
+[ext_resource type="Script" path="res://Assets/Scripts/Player/Weapon/Script_Control_PlayerWeapon.gd" id="4_7lj4b"]
+[ext_resource type="PackedScene" uid="uid://dn3xfbukde1fv" path="res://Assets/Objects/Player/Viewmodels/SC_Viewmodel_None.tscn" id="4_hkojv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c23eb"]
+margin = 0.5
+radius = 0.4
+height = 1.75
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vm6pp"]
+margin = 0.5
+radius = 0.4
+height = 0.95
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qsvxe"]
+radius = 0.4
+height = 1.75
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_5ffuh")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_c23eb")
+
+[node name="CollisionCrouch" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("CapsuleShape3D_vm6pp")
+disabled = true
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="Camera" parent="Head" instance=ExtResource("1_xqu0b")]
+
+[node name="WeaponAttach" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163806, -0.0672958, 0.0915061)
+
+[node name="ViewmodelControl" parent="Head/Camera/WeaponAttach" instance=ExtResource("3_5jqs6")]
+
+[node name="VIEWMODEL_None" parent="Head/Camera/WeaponAttach/ViewmodelControl/Weapon" index="0" instance=ExtResource("4_hkojv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163806, 0.532704, 0.0915061)
+
+[node name="WeaponControl" type="Node" parent="Head/Camera/WeaponAttach/ViewmodelControl"]
+script = ExtResource("4_7lj4b")
+
+[node name="MuzzlePoint" type="Node3D" parent="Head/Camera/WeaponAttach"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163806, 0.0672958, -0.770245)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_qsvxe")
+
+[node name="ArrowVelocityPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.811715, 0)
+
+[node name="ArrowVelocity" type="Sprite3D" parent="ArrowVelocityPivot"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.000862435, -0.00394773, -0.0805144)
+modulate = Color(1, 0, 0.95, 1)
+axis = 0
+texture_filter = 0
+texture = ExtResource("3_qcniq")
+
+[editable path="Head/Camera/WeaponAttach/ViewmodelControl"]

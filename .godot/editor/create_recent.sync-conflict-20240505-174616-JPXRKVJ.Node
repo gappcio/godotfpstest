@@ -1,0 +1,14 @@
+Node3D
+Timer
+AnimationTree
+AnimationPlayer
+Node
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
+Player
+BoneAttachment3D
+Label3D
+Sprite3D
+Label
+CanvasLayer
